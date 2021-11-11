@@ -19,10 +19,10 @@ const OurProduct = () => {
     return (
         <>
             <Navbar></Navbar>
-            <Typography variant="h3" sx={{textAlign:'center',fontWeight: 600}} gutterBottom component="div">
+            <Typography variant="h3" sx={{mt:5,textAlign:'center',fontWeight: 600}} gutterBottom component="div">
                 Our Products
             </Typography>
-            <Container>
+            <Container sx={{pb:5}}>
                 <div className="card">    
                     {
                         allProducts.map(product=><DisplayProducts

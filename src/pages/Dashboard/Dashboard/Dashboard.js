@@ -68,6 +68,9 @@ const Dashboard = (props) => {
                 </Link>
               </Box>
             }
+            <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>
+                <Button color="inherit">Back to Home</Button>
+            </Link>
             
         </List>
         <div className="logout-bar">
