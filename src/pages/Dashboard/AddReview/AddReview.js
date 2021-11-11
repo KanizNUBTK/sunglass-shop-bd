@@ -24,7 +24,7 @@ const AddReview = () => {
 
         }
         // console.log(product.name, product.price,product.link, product.description);
-        fetch("http://localhost:5000/addreview", {
+        fetch("https://murmuring-fjord-09510.herokuapp.com/addreview", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(reviews),

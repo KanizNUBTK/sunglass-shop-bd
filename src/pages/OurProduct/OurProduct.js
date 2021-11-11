@@ -9,7 +9,7 @@ import './OurProduct.css';
 const OurProduct = () => {
     const [allProducts, setAllProducts] = useState([]);
     useEffect(() =>{
-        fetch('http://localhost:5000/allProducts')
+        fetch('https://murmuring-fjord-09510.herokuapp.com/allProducts')
         .then(res=>res.json())
         .then(data=>{
             console.log(data);

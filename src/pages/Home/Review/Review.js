@@ -8,7 +8,7 @@ const Review = () => {
     const [reviews, setReview]=useState({});
 
     useEffect(() =>{
-        fetch('http://localhost:5000/addreview')
+        fetch('https://murmuring-fjord-09510.herokuapp.com/addreview')
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
@@ -17,7 +17,7 @@ const Review = () => {
     },[]);
     return (
         <div>
-            {
+            {/* {
                 reviews.map(rt=>(
                     <Container sx={{my:5,py:5,boxShadow: 3}}>
                         <Typography variant="h4" sx={{ my:5, fontWeight: 600}} gutterBottom component="div">
@@ -32,7 +32,7 @@ const Review = () => {
                         <Rating name="size-medium" defaultValue={rt.rating}></Rating>
                     </Container>
                     ))
-            }       
+            }        */}
         </div>
     );
 };

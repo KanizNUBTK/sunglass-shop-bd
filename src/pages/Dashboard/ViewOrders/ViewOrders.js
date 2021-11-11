@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 const ViewOrders = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() =>{
-        fetch('http://localhost:5000/addNewOrder')
+        fetch('https://murmuring-fjord-09510.herokuapp.com/addNewOrder')
         .then(res=>res.json())
         .then(data=>{
             console.log(data);

@@ -14,7 +14,7 @@ const ShowProduct = () => {
     const { productId } = useParams();
     console.log(productId);
     useEffect(() => {
-        fetch(`http://localhost:5000/addproduct`)
+        fetch('https://murmuring-fjord-09510.herokuapp.com/addproduct')
           .then((res) => res.json())
           .then((data) => {setProduct(data)});
       }, [productId]);

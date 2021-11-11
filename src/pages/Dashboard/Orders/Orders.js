@@ -13,7 +13,7 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
     const {user} = useAuth();
     useEffect(() =>{
-        fetch('http://localhost:5000/addNewOrder')
+        fetch('https://murmuring-fjord-09510.herokuapp.com/addNewOrder')
         .then(res=>res.json())
         .then(data=>{
             console.log(data);

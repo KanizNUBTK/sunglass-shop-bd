@@ -24,7 +24,7 @@ const OrderForm = () => {
             status :"pending"
         }
         console.log(product.name, product.price,user.email);
-        fetch("http://localhost:5000/addNewOrder", {
+        fetch("https://murmuring-fjord-09510.herokuapp.com/addNewOrder", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(products),

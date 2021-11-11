@@ -20,7 +20,7 @@ const AddProduct = () => {
 
         }
         // console.log(product.name, product.price,product.link, product.description);
-        fetch("http://localhost:5000/addproduct", {
+        fetch("https://murmuring-fjord-09510.herokuapp.com/addproduct", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(products),
