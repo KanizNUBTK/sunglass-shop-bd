@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,8 +6,19 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useEffect } from 'react';
 
 const ViewOrders = () => {
+    const [orders, setOrders] = useState([]);
+    useEffect(() =>{
+        fetch('http://localhost:5000/addNewOrder')
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            setOrders(data);
+        })
+    },[]);
+
     return (
         <div>
             <h1>view cusmoter order</h1>
@@ -15,26 +26,26 @@ const ViewOrders = () => {
                 <Table sx={{}} aria-label="simple table">
                     <TableHead>
                     <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell align="right">Email</TableCell>
-                        <TableCell align="right">Orders</TableCell>
-                        <TableCell align="right">Action</TableCell>
+                        <TableCell >Email</TableCell>
+                        <TableCell>Orders Product Name</TableCell>
+                        <TableCell>Price</TableCell>
+                        <TableCell>Action</TableCell>
                     </TableRow>
                     </TableHead>
                     <TableBody>
-                    {/* {apointments.map((row) => (
+                    {orders.map((row,index) => (
                         <TableRow
                         key={row._id}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell component="th" scope="row">
-                            {row.patientName}
+                            {row?.email}
                         </TableCell>
-                        <TableCell align="right">{row.time}</TableCell>
-                        <TableCell align="right">{row.serviceName}</TableCell>
-                        <TableCell align="right">{row.fat}</TableCell>
+                        <TableCell component="th" scope="row">{row?.name}</TableCell>
+                        <TableCell component="th" scope="row">{row?.price}</TableCell>
+                        <TableCell component="th" scope="row">{row?.status}</TableCell>
                         </TableRow>
-                    ))} */}
+                    ))}
                     </TableBody>
                 </Table>
                 </TableContainer>

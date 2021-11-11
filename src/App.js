@@ -7,6 +7,8 @@ import Register from './Shared/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import PrivateRoute from './Shared/PrivateRoute/PrivateRoute';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import ShowProduct from './pages/ShowProduct/ShowProduct';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -20,8 +22,11 @@ function App() {
               <Route exact path="/home">
                 <Home></Home>
               </Route>
-              <PrivateRoute exact path="/ourProduct">
+              <Route exact path="/ourProduct">
                 <OurProduct></OurProduct>
+              </Route>
+              <PrivateRoute exact path="/showProduct/:productId">
+                <ShowProduct></ShowProduct>
               </PrivateRoute>
               <PrivateRoute path="/dashboard">
                 <Dashboard></Dashboard>
@@ -31,6 +36,9 @@ function App() {
               </Route>
               <Route exact path="/register">
                 <Register></Register>
+              </Route>
+              <Route exact path="*">
+                <NotFound></NotFound>
               </Route>
             </Switch>
          </Router>

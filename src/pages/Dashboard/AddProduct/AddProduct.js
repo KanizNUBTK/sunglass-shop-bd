@@ -35,6 +35,14 @@ const AddProduct = () => {
             <TextField 
             sx={{my: 1}} 
             fullWidth id="outlined-basic" 
+            label="Product key" 
+            type="number"
+            name="key"
+            onBlur={handleOnBlur}
+            variant="outlined" />
+            <TextField 
+            sx={{my: 1}} 
+            fullWidth id="outlined-basic" 
             label="Name" 
             name="name"
             onBlur={handleOnBlur}

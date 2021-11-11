@@ -20,6 +20,7 @@ const AddReview = () => {
     const handleProductSubmit = () =>{
         const reviews ={
             ...review,
+            email: user?.email,
 
         }
         // console.log(product.name, product.price,product.link, product.description);

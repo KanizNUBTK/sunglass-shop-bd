@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import Footer from '../../Shared/Footer/Footer';
 import Navbar from '../../Shared/Navbar/Navbar';
 import DisplayProducts from '../DisplayProducts/DisplayProducts';
@@ -20,6 +19,9 @@ const OurProduct = () => {
     return (
         <>
             <Navbar></Navbar>
+            <Typography variant="h3" sx={{textAlign:'center',fontWeight: 600}} gutterBottom component="div">
+                Our Products
+            </Typography>
             <Container>
                 <div className="card">    
                     {

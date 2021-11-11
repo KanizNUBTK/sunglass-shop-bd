@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import './DisplayProduct.css';
+import './SingleProduct.css';
 
-const DisplayProducts = (props) => {
+const SingleProduct = (props) => {
     const{key,name,number,description,link}=props.product;
     return (
         <div className="card-design">
@@ -29,4 +29,4 @@ const DisplayProducts = (props) => {
     );
 };
 
-export default DisplayProducts;
+export default SingleProduct;
