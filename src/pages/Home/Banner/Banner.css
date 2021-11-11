@@ -1,0 +1,14 @@
+.appointmentBg{
+    background: url('../../../images/banner1.jpg');
+    padding: 100px;
+    background-repeat: no-repeat;
+    background-blend-mode: 'darken, luminosity';
+}
+.header-text{
+    font-weight: bold;
+    font-size: 30px;
+}
+.btn-bg{
+    padding: 5px 20px;
+    background-color: rgba(128, 128, 160, 0.11);
+}

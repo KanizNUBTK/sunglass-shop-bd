@@ -1,42 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Home from './pages/Home/Home/Home';
 import OurProduct from './pages/OurProduct/OurProduct';
+import Login from './Shared/Login/Login';
+import Register from './Shared/Register/Register';
+import AuthProvider from './context/AuthProvider/AuthProvider';
+import PrivateRoute from './Shared/PrivateRoute/PrivateRoute';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/ourProduct">our product</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/ourProduct">
-            <OurProduct></OurProduct>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div>
+      <AuthProvider>
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Home></Home>
+              </Route>
+              <Route exact path="/home">
+                <Home></Home>
+              </Route>
+              <PrivateRoute exact path="/ourProduct">
+                <OurProduct></OurProduct>
+              </PrivateRoute>
+              <PrivateRoute path="/dashboard">
+                <Dashboard></Dashboard>
+              </PrivateRoute>
+              <Route exact path="/login">
+                <Login></Login>
+              </Route>
+              <Route exact path="/register">
+                <Register></Register>
+              </Route>
+            </Switch>
+         </Router>
+      </AuthProvider>
+   
     </div>
   );
 }

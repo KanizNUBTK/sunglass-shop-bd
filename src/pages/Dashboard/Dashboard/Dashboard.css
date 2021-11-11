@@ -1,0 +1,6 @@
+.logout-bar{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 2px solid black;
+}
