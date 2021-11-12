@@ -15,10 +15,12 @@ const Review = () => {
             setReview(data);
         })
     },[]);
+
     return (
-        <div>
-            {/* {
-                reviews.map(rt=>(
+        <>
+           <div>
+            {
+                reviews?.map(rt=>(
                     <Container sx={{my:5,py:5,boxShadow: 3}}>
                         <Typography variant="h4" sx={{ my:5, fontWeight: 600}} gutterBottom component="div">
                             Customer reviews...
@@ -32,8 +34,9 @@ const Review = () => {
                         <Rating name="size-medium" defaultValue={rt.rating}></Rating>
                     </Container>
                     ))
-            }        */}
-        </div>
+            }       
+            </div>
+        </>
     );
 };
 

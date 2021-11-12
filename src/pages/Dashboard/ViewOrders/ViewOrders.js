@@ -7,11 +7,16 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useEffect } from 'react';
+import useAuth from '../../../hook/useAuth';
 
 const ViewOrders = () => {
     const [orders, setOrders] = useState([]);
+    const {user} = useAuth();
     useEffect(() =>{
-        fetch('https://murmuring-fjord-09510.herokuapp.com/addNewOrder')
+        //const url =`http://localhost:5000/addNewOrder?email=${user.email}`;
+        const url =`https://murmuring-fjord-09510.herokuapp.com/addNewOrder?email=${user.email}`;
+        //fetch('https://murmuring-fjord-09510.herokuapp.com/addNewOrder')
+        fetch(url)
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
