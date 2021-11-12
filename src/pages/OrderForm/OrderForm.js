@@ -38,6 +38,13 @@ const OrderForm = () => {
                  Are You Want to Place Order?Please Submit form...
             </Typography>
             <form onSubmit={handleProductOrderSubmit}>
+            <TextField 
+                sx={{my: 1}} 
+                fullWidth id="outlined-basic" 
+                label="Customer Name" 
+                name="customerName"
+                onBlur={handleOnBlur}
+                size="small" />
                 <TextField 
                 sx={{my: 1}} 
                 fullWidth id="outlined-basic" 
@@ -57,6 +64,20 @@ const OrderForm = () => {
                 defaultValue={user.email}
                 onBlur={handleOnBlur}
                 variant="outlined" />
+                <TextField 
+                sx={{my: 1}} 
+                fullWidth id="outlined-basic" 
+                label="Customer Phone Number" 
+                name="phoneNumber"
+                onBlur={handleOnBlur}
+                size="small" />
+                <TextField 
+                sx={{my: 1}} 
+                fullWidth id="outlined-basic" 
+                label="Customer Address" 
+                name="address"
+                onBlur={handleOnBlur}
+                size="small" />
                 <Button sx={{ width: '100%', m: 1 }} type="submit" variant="contained">Order</Button>
             </form>
         </>

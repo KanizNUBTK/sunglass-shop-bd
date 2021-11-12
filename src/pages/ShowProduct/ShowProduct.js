@@ -28,10 +28,10 @@ const ShowProduct = () => {
                 <div>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={6} sx={{mt:10}}>
                             <div>
-                                <img style={{width:'200px', height:'250px'}} src={exactData[0]?.link} alt="" />
-                                <Typography variant="h5" gutterBottom component="div" sx={{ color: 'info.main' , fontWeight: 600}}>
+                                <img style={{width:'250px', height:'250px'}} src={exactData[0]?.link} alt="" />
+                                <Typography variant="h5" gutterBottom component="div" sx={{ color: 'info.main', mt:3 , fontWeight: 600}}>
                                     Product name: {exactData[0]?.name}
                                 </Typography>
                                 <Typography variant="h5" display="block" gutterBottom>
@@ -42,7 +42,7 @@ const ShowProduct = () => {
                                 </Typography>
                             </div>
                         </Grid>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={6} sx={{mb: 5}}>
                             <OrderForm></OrderForm>
                         </Grid>
                     </Grid>
