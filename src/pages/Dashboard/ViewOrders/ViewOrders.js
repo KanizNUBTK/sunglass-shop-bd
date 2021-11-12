@@ -13,9 +13,7 @@ const ViewOrders = () => {
     const [orders, setOrders] = useState([]);
     const {user} = useAuth();
     useEffect(() =>{
-        //const url =`http://localhost:5000/addNewOrder?email=${user.email}`;
         const url =`https://murmuring-fjord-09510.herokuapp.com/addNewOrder?email=${user.email}`;
-        //fetch('https://murmuring-fjord-09510.herokuapp.com/addNewOrder')
         fetch(url)
         .then(res=>res.json())
         .then(data=>{
@@ -27,17 +25,17 @@ const ViewOrders = () => {
     return (
         <div>
             <h1>view cusmoter order</h1>
-            <TableContainer component={Paper}>
-                <Table sx={{}} aria-label="simple table">
+            <TableContainer sx={{width:{xs:300,sm:400, md:'100%'}}} component={Paper}>
+                <Table aria-label="simple table">
                     <TableHead>
-                    <TableRow>
+                    <TableRow sx={{width:{xs:100,sm:200}}}>
                         <TableCell >Email</TableCell>
                         <TableCell>Orders Product Name</TableCell>
                         <TableCell>Price</TableCell>
                         <TableCell>Action</TableCell>
                     </TableRow>
                     </TableHead>
-                    <TableBody>
+                    <TableBody sx={{width:{xs:100,sm:200}}}>
                     {orders.map((row,index) => (
                         <TableRow
                         key={row._id}

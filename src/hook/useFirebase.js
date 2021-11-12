@@ -62,6 +62,21 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
 
+    useEffect(()=>{
+        fetch(`https://murmuring-fjord-09510.herokuapp.com/users/${user?.email}`)
+        .then(res=>{
+            if(!res.ok){
+                throw Error('Could not fetch the data');
+            }
+            res.json();
+        })
+        .then(data=>{
+            console.log(data.admin);
+            setAdmin(data.admin);
+        })
+        .catch(err=>{console.log(err.message)});
+    },[user?.email]);
+
     const logout = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
@@ -83,12 +98,7 @@ const useFirebase = () => {
         })
             .then()
     }
-    useEffect(()=>{
-        //fetch(`http://localhost:5000/users/${user.email}`)
-        fetch(`https://murmuring-fjord-09510.herokuapp.com/users/${user?.email}`)
-        .then(res=>res.json())
-        .then(data=> setAdmin(data.admin));
-    },[user?.email]);
+ 
     
     return {
         user,

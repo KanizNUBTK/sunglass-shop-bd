@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import useAuth from '../../hook/useAuth';
 import { useState } from 'react';
+import Box from '@mui/material/Box';
 
 const OrderForm = () => {
     const [product,setProduct]=useState([]);
@@ -24,8 +25,8 @@ const OrderForm = () => {
             status :"pending"
         }
         console.log(product.name, product.price,user.email);
-        fetch("https://murmuring-fjord-09510.herokuapp.com/addNewOrder", {
-            method: "POST",
+        fetch('https://murmuring-fjord-09510.herokuapp.com/addNewOrder', {
+            method: 'POST',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(products),
           })
@@ -33,11 +34,11 @@ const OrderForm = () => {
             .then((result) => console.log(products));
     }
     return (
-        <>
+        <Box sx={{width:{xs:300,sm:500, md:'100%'}}}>
             <Typography variant="h5" gutterBottom component="div" sx={{ color: 'info.main' , my:5,fontWeight: 600}}>
                  Are You Want to Place Order?Please Submit form...
             </Typography>
-            <form onSubmit={handleProductOrderSubmit}>
+            <div onClick={handleProductOrderSubmit}>
             <TextField 
                 sx={{my: 1}} 
                 fullWidth id="outlined-basic" 
@@ -79,8 +80,8 @@ const OrderForm = () => {
                 onBlur={handleOnBlur}
                 size="small" />
                 <Button sx={{ width: '100%', m: 1 }} type="submit" variant="contained">Order</Button>
-            </form>
-        </>
+            </div>
+        </Box>
     );
 };
 

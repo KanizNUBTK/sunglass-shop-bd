@@ -12,7 +12,12 @@
     padding-bottom: 20px;
 }
 @media only screen and (max-width: 600px) {
+    .img-design{
+        width: 200px;
+        height: 200px;
+    }
     .card-design{
+        width: 300px;
         padding: 5px 10px;
     }
     .card-body{

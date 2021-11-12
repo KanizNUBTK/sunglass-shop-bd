@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import bg from '../../../images/banner1.jpg';
 import { Link } from 'react-router-dom';
+import './Banner.css';
 
 const appointmentBg = {
     background: `url(${bg})`,
@@ -17,7 +18,7 @@ const appointmentBg = {
 const Banner = () => {
     return (
         <Box style={appointmentBg} sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{width:{xs:300,sm:400, md:'100%'}}}>
                 <Grid item xs={12} md={8} sx={{ 
                     display: 'flex', 
                     justifyContent: 'flex-start',

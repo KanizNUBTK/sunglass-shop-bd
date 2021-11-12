@@ -26,10 +26,9 @@ import './Dashboard.css';
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
-  const {user,logout,admin} = useAuth();
+    const {user,logout,admin} = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    //const {admin} = useAuth();
    
     let { path, url } = useRouteMatch();
     const handleDrawerToggle = () => {
@@ -56,7 +55,8 @@ const Dashboard = (props) => {
                 <Button color="inherit">payment</Button>
             </Link>
             <br />
-            {admin && <Box>
+            {/* {admin &&} */}
+             <Box>
                 <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}>
                     <Button color="inherit">Make Admin</Button>
                 </Link>
@@ -67,7 +67,7 @@ const Dashboard = (props) => {
                     <Button color="inherit">Orders list</Button>
                 </Link>
               </Box>
-            }
+              
             <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>
                 <Button color="inherit">Back to Home</Button>
             </Link>

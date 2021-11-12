@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 const Review = () => {
-    const [reviews, setReview]=useState({});
+    const [reviews, setReview]=useState([]);
 
     useEffect(() =>{
         fetch('https://murmuring-fjord-09510.herokuapp.com/addreview')
@@ -19,12 +19,13 @@ const Review = () => {
     return (
         <>
            <div>
+           <Container sx={{my:5,py:5,boxShadow: 3}}>
+                <Typography variant="h4" sx={{ my:5, fontWeight: 600}} gutterBottom component="div">
+                    Customer reviews...
+                </Typography>
             {
                 reviews?.map(rt=>(
-                    <Container sx={{my:5,py:5,boxShadow: 3}}>
-                        <Typography variant="h4" sx={{ my:5, fontWeight: 600}} gutterBottom component="div">
-                            Customer reviews...
-                        </Typography>
+                    <div>
                         <Typography variant="h6" gutterBottom component="div">
                             {rt.email}
                         </Typography>
@@ -32,9 +33,10 @@ const Review = () => {
                             {rt.review}
                         </Typography>
                         <Rating name="size-medium" defaultValue={rt.rating}></Rating>
-                    </Container>
-                    ))
-            }       
+                    </div>
+                 ))
+            } 
+            </Container>      
             </div>
         </>
     );

@@ -19,14 +19,14 @@ const ShowProduct = () => {
           .then((data) => {setProduct(data)});
       }, [productId]);
     const exactData = product.filter(pd=> pd.key == productId);
-    console.log(exactData);
+    //console.log(exactData);
     
     return (
         <>
             <Navbar></Navbar>
             <Container>
                 <div>
-                <Box sx={{ flexGrow: 1 }}>
+                <Box sx={{ flexGrow: 1, width:{xs:300,sm:500, md:'100%'} }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={6} sx={{mt:10}}>
                             <div>

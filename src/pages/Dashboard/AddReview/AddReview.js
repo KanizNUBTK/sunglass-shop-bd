@@ -39,7 +39,7 @@ const AddReview = () => {
     return (
         <div>
             <h1>Review...</h1>
-            <form onSubmit={handleProductSubmit}>
+            <div onClick={handleProductSubmit}>
             <TextField 
             sx={{my: 1}} 
             fullWidth id="outlined-basic" 
@@ -65,7 +65,7 @@ const AddReview = () => {
             onBlur={handleOnBlur}
             variant="outlined" />
             <Button sx={{ width: '100%', m: 1 }} type="submit" variant="contained">Send Review</Button>
-            </form>
+            </div>
             {success && <Alert severity="success">Review uploaded successfully!</Alert>}
         </div>
     );
