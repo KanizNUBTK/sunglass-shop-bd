@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import useAuth from '../../../hook/useAuth';
+import { Alert } from '@mui/material';
 
 const AddProduct = () => {
     const {user} = useAuth();
@@ -31,7 +32,7 @@ const AddProduct = () => {
             .then((result) => {
                 console.log(products);
                 setProduct('');
-                setSuccess(ture);
+                setSuccess(true);
             });
     }
     return (
