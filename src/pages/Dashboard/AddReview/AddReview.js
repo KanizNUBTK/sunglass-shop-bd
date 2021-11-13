@@ -43,6 +43,14 @@ const AddReview = () => {
             <TextField 
             sx={{my: 1}} 
             fullWidth id="outlined-basic" 
+            label="Please Enter Your Name"
+            name="name"
+            type="text"
+            onBlur={handleOnBlur}
+            variant="outlined" />
+            <TextField 
+            sx={{my: 1}} 
+            fullWidth id="outlined-basic" 
             name="email"
             type="email"
             defaultValue={user.email}
