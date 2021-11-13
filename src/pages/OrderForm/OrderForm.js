@@ -5,10 +5,12 @@ import { Button } from '@mui/material';
 import useAuth from '../../hook/useAuth';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
+import { Alert } from '@mui/material';
 
 const OrderForm = () => {
     const [product,setProduct]=useState([]);
     const { user } = useAuth();
+    const [success, setSuccess] = useState(false);
 
     const handleOnBlur =e=>{
         const field = e.target.name;
@@ -31,7 +33,11 @@ const OrderForm = () => {
             body: JSON.stringify(products),
           })
             .then((res) => res.json())
-            .then((result) => console.log(products));
+            .then((result) => {
+                console.log(products);
+                setSuccess(true);
+                setProduct('');
+            });
     }
     return (
         <Box sx={{width:{xs:300,sm:500, md:'100%'}}}>
@@ -81,6 +87,7 @@ const OrderForm = () => {
                 size="small" />
                 <Button sx={{ width: '100%', m: 1 }} type="submit" variant="contained">Order</Button>
             </div>
+            {success && <Alert severity="success">Order upload successfully</Alert>}
         </Box>
     );
 };

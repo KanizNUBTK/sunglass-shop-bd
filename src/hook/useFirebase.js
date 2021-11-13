@@ -62,20 +62,19 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
 
+    console.log(user.email);
     useEffect(()=>{
-        fetch(`https://murmuring-fjord-09510.herokuapp.com/users/${user?.email}`)
-        .then(res=>{
-            if(!res.ok){
-                throw Error('Could not fetch the data');
-            }
-            res.json();
-        })
+        const url=`https://murmuring-fjord-09510.herokuapp.com/users/${user.email}`;
+        
+        fetch(url)
+        .then(res=>res.json())
         .then(data=>{
-            console.log(data.admin);
-            setAdmin(data.admin);
+            console.log('check admin=',data)
+            setAdmin(data.admin)
         })
         .catch(err=>{console.log(err.message)});
-    },[user?.email]);
+    },[user,admin]);
+    console.log(admin);
 
     const logout = () => {
         setIsLoading(true);

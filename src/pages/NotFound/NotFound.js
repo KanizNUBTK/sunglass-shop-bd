@@ -1,10 +1,13 @@
 import React from 'react';
+import notFound from '../../images/notFound.jpg';
+import './NotFpund.css';
+import Box from '@mui/material/Box';
 
 const NotFound = () => {
     return (
-        <div>
-            <h1>not found</h1>
-        </div>
+        <Box sx={{p:5}}>
+            <img className="notfound-img" src={notFound} alt="" />
+        </Box>
     );
 };
 

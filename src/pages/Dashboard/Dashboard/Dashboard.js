@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -30,11 +30,13 @@ const Dashboard = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
    
+   
     let { path, url } = useRouteMatch();
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
     };
-  
+
+   
     const drawer = (
       <div>
         <Toolbar />
@@ -55,7 +57,7 @@ const Dashboard = (props) => {
                 <Button color="inherit">payment</Button>
             </Link>
             <br />
-            {/* {admin &&} */}
+            {admin &&
              <Box>
                 <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'black' }}>
                     <Button color="inherit">Make Admin</Button>
@@ -67,7 +69,7 @@ const Dashboard = (props) => {
                     <Button color="inherit">Orders list</Button>
                 </Link>
               </Box>
-              
+            } 
             <Link to="/home" style={{ textDecoration: 'none', color: 'black' }}>
                 <Button color="inherit">Back to Home</Button>
             </Link>

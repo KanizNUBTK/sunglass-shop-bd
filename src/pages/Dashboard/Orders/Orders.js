@@ -9,12 +9,19 @@ import Paper from '@mui/material/Paper';
 import { useEffect } from 'react';
 import useAuth from '../../../hook/useAuth';
 import { Button } from '@mui/material';
+import Box from '@mui/material/Box';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const {user} = useAuth();
+    const [changeStatus, setChangeStatus] = useState([]);
+
+  //display orders
     useEffect(() =>{
-        fetch('https://murmuring-fjord-09510.herokuapp.com/addNewOrder')
+        fetch('https://murmuring-fjord-09510.herokuapp.com/addNewOrder/onerOrders')
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
@@ -40,6 +47,28 @@ const Orders = () => {
         })
        }
     }
+//status change
+    const handleStatusChange =(e)=>{
+        const field = e.target.name;
+        const value = e.target.value;
+        console.log(field,value);
+        const newLoginData = {...changeStatus};
+        newLoginData[field] = value;
+        setChangeStatus(newLoginData);
+    }
+   
+    const handleStatusUpdate = id => {
+        const statusChange ={
+            ...changeStatus
+        }
+        fetch(`https://murmuring-fjord-09510.herokuapp.com/addNewOrder/statusUpdate/${id}`, {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(statusChange),
+        })
+       .then((res) => res.json())
+       .then((result) => console.log(result));
+      };
 
     return (
         <div>
@@ -65,8 +94,20 @@ const Orders = () => {
                         </TableCell>
                         <TableCell component="th" scope="row">{row?.name}</TableCell>
                         <TableCell component="th" scope="row">{row?.price}</TableCell>
-                        <TableCell component="th" scope="row">{row?.status}</TableCell>
-                        <TableCell component="th" scope="row"><Button onClick={()=>handleDeleteUser(row._id)}>Delete</Button></TableCell>
+                        <TableCell component="th" scope="row">
+                            <Box sx={{ minWidth: 120 }}>
+                                <FormControl fullWidth onChange={handleStatusUpdate}>
+                                    <Select
+                                    id="demo-simple-select"
+                                    onClick={handleStatusChange}
+                                    >
+                                    <MenuItem value="Pending" >Pending</MenuItem>
+                                    <MenuItem value="Shippment">Shippment</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                        </TableCell>
+                        <TableCell component="th" scope="row"><Button onClick={()=>handleDeleteUser(row._id)} sx={{backgroundColor:'red', color:'white', px:5}}>Delete</Button></TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useEffect } from 'react';
 import useAuth from '../../../hook/useAuth';
+import { Button } from '@mui/material';
 
 const ViewOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -22,6 +23,24 @@ const ViewOrders = () => {
         })
     },[]);
 
+    const handleDeleteUser = id =>{
+        const proceed = window.confirm('Are sure you want to delete the customer?');
+        if(proceed){
+         const url = `https://murmuring-fjord-09510.herokuapp.com/addNewOrder/${id}`;
+         fetch(url,{
+             method:'DELETE'
+         })
+         .then(res=>res.json())
+         .then(data=>{
+             if(data.deletedCount > 0){
+                 alert('Delete successfully');
+                 const remainingusers = orders.filter(order => order._id !== id);
+                 setOrders(remainingusers);
+             }
+         })
+        }
+     }
+
     return (
         <div>
             <h1>view cusmoter order</h1>
@@ -32,6 +51,7 @@ const ViewOrders = () => {
                         <TableCell >Email</TableCell>
                         <TableCell>Orders Product Name</TableCell>
                         <TableCell>Price</TableCell>
+                        <TableCell>Status</TableCell>
                         <TableCell>Action</TableCell>
                     </TableRow>
                     </TableHead>
@@ -47,6 +67,7 @@ const ViewOrders = () => {
                         <TableCell component="th" scope="row">{row?.name}</TableCell>
                         <TableCell component="th" scope="row">{row?.price}</TableCell>
                         <TableCell component="th" scope="row">{row?.status}</TableCell>
+                        <TableCell component="th" scope="row"><Button onClick={()=>handleDeleteUser(row._id)} sx={{backgroundColor:'red', color:'white', px:5}}>Delete</Button></TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

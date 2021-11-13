@@ -21,7 +21,7 @@ const SingleProduct = (props) => {
             <Typography variant="caption" display="block" gutterBottom>
                 Description: {description}
             </Typography> 
-            <Link to={`/showProduct/${key}`}>
+            <Link to={`/showProduct/${key}`} style={{textDecoration:'none'}}>
                 <Button sx={{px: 5}} variant="contained">Order</Button>
             </Link>
             </div>
