@@ -35,8 +35,8 @@ const OrderForm = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log(products);
-                setSuccess(true);
                 setProduct('');
+                setSuccess(true);
             });
     }
     return (

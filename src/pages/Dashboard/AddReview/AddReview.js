@@ -33,6 +33,7 @@ const AddReview = () => {
             .then((result) => 
                 {if(result.modifiedCount){
                 console.log(result);
+                setReview('');
                 setSuccess(true);}
             });
     }

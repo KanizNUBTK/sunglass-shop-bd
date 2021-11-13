@@ -6,6 +6,8 @@ import useAuth from '../../../hook/useAuth';
 const AddProduct = () => {
     const {user} = useAuth();
     const [product, setProduct] = useState([]);
+    const [success, setSuccess] = useState(false);
+    
     const handleOnBlur =e=>{
         const field = e.target.name;
         const value = e.target.value;
@@ -26,7 +28,11 @@ const AddProduct = () => {
             body: JSON.stringify(products),
           })
             .then((res) => res.json())
-            .then((result) => console.log(products));
+            .then((result) => {
+                console.log(products);
+                setProduct('');
+                setSuccess(ture);
+            });
     }
     return (
         <div>
@@ -72,6 +78,7 @@ const AddProduct = () => {
             variant="outlined" />
             <Button sx={{ width: '100%', m: 1 }} type="submit" variant="contained">Upload</Button>
             </form>
+            {success && <Alert severity="success">Made Admin successfully!</Alert>}
            
         </div>
     );
