@@ -72,11 +72,11 @@ const Orders = () => {
 
     return (
         <div>
-            {user?.email && <TableContainer component={Paper}>
-                <Table sx={{}} aria-label="simple table">
+            {user?.email && <TableContainer component={Paper} sx={{width:{xs:300,sm:400, md:'100%'}}} >
+                <Table aria-label="simple table">
                     <TableHead>
-                    <TableRow>
-                        <TableCell >Email</TableCell>
+                    <TableRow >
+                        <TableCell>Email</TableCell>
                         <TableCell>Orders Product Name</TableCell>
                         <TableCell>Price</TableCell>
                         <TableCell>Status</TableCell>

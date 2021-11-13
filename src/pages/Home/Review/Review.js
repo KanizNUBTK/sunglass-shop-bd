@@ -27,6 +27,9 @@ const Review = () => {
                 reviews?.map(rt=>(
                     <div>
                         <Typography variant="h6" gutterBottom component="div">
+                            {rt.name}
+                        </Typography>
+                        <Typography variant="h6" gutterBottom component="div">
                             {rt.email}
                         </Typography>
                         <Typography variant="subtitle2" gutterBottom component="div">
