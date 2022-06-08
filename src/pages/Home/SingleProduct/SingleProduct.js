@@ -8,7 +8,7 @@ const SingleProduct = (props) => {
     const{key,name,number,description,link}=props.product;
     return (
         <div className="card-design">
-            <div>
+            <div className='card-img'>
                 <img className="img-design" src={link} alt="" />
             </div>
             <div className="card-body">

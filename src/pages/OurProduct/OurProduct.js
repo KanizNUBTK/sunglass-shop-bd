@@ -21,8 +21,8 @@ const OurProduct = () => {
         <>
             <Navbar></Navbar>
             <Box sx={{width:{xs:400,sm:500, md:'100%'}}}>
-                <Typography variant="h3" sx={{mt:5,textAlign:'center',fontWeight: 600, fontSize:{xs:'24px'}}} gutterBottom component="div">
-                    Our Products
+                <Typography variant="h2" sx={{mt:5,textAlign:'center',color:'#1976D2',fontWeight: 600, fontSize:{xs:'34px'}}} gutterBottom component="div">
+                    Our Products...
                 </Typography>
                 <Container sx={{pb:5}}>
                     <div className="card">    
