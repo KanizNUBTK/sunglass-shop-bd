@@ -39,7 +39,7 @@ const ShowProduct = () => {
                                 <Typography variant="h5" display="block" gutterBottom>
                                     Price of product: {exactData[0]?.number}
                                 </Typography>
-                                <Typography variant="caption" display="block" gutterBottom>
+                                <Typography variant="caption" display="block" gutterBottom style={{textDecoration:'justify'}}>
                                     Price of description: {exactData[0]?.description}
                                 </Typography>
                             </div>
