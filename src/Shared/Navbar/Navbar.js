@@ -101,7 +101,7 @@ const Navbar = () => {
                             <MenuIcon />
                         </IconButton>
                         <Typography className={navLogo} variant="h6" component="div" sx={{ flexGrow: 1 }} id='text-Color'>
-                            Hello Health lovers
+                            Hello Health Lovers
                         </Typography>
                         <Box className={navContainer}>
                             <Link to="/home" className={nabItemMD} ><Button color="inherit">Home</Button></Link>
