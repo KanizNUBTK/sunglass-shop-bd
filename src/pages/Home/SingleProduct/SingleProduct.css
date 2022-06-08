@@ -9,6 +9,9 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.card-img {
+    margin-top: -100px;
+}
 
 .card-body {
     padding-bottom: 20px;

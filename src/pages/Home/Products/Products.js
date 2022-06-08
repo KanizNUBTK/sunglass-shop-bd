@@ -3,6 +3,8 @@ import { Container } from '@mui/material';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import  Box from '@mui/material/Box'; 
+import './Product.css'
 
 const Products = () => {
     const [allProducts, setAllProducts] = useState([]);
@@ -16,27 +18,27 @@ const Products = () => {
     }, [])
     const pro = allProducts.slice(0, 4)
     return (
-        <div>
+        <Box sx={{ flexGrow: 1 }}>
             <Container sx={{ my: 5, pb: 5, boxShadow: 1 }}>
-                <Typography variant="h4" sx={{ my: 5, color:'#1976D2',textAlign: 'center', fontWeight: 600 }} gutterBottom component="div">
+                <h1 className='productHeader'>
                     Our Products
-                </Typography>
-                {/* <div className="card"> */}
-                <Grid container>
-                    {
-                        pro.map(product =>
-                            <Grid item xs={12} md={3} sx={{ p: 2 }}>
-                                <SingleProduct
-                                    key={product.key}
-                                    product={product}
-                                ></SingleProduct>
-                            </Grid>
-                        )
-                    }
-                </Grid>
-                {/* </div> */}
+                </h1>
+                <div >
+                    <Grid container spacing={{ md: 3 }} columns={{ xs: 2, sm: 4, md: 12 }}>
+                        {
+                            pro.map(product =>
+                                <Grid item xs={12} md={3} sx={{ p: 2 }}>
+                                    <SingleProduct
+                                        key={product.key}
+                                        product={product}
+                                    ></SingleProduct>
+                                </Grid>
+                            )
+                        }
+                    </Grid>
+                </div>
             </Container>
-        </div>
+        </Box>
     );
 };
 

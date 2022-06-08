@@ -23,10 +23,10 @@ const Review = () => {
         <>
             <div>
                 <Container sx={{ my: 5, py: 5, boxShadow: 3 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 600, color:'#1976D2',mb: 4 }} gutterBottom component="div">
+                    <Typography variant="h6" sx={{ fontWeight: 600, color: '#1976D2', mb: 4 }} gutterBottom component="div">
                         Customer reviews...
                     </Typography>
-                    <Grid container>
+                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         {
                             rev?.map(rt => (
                                 <Grid item xs={12} md={3} sx={{ p: 1 }}>

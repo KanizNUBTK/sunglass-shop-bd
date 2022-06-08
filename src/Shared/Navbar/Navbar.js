@@ -65,13 +65,13 @@ const Navbar = () => {
                     <ListItemText ><Link className={nabItem} to="/home">Home</Link></ListItemText>
                 </ListItem>
                 <ListItem button>
-                    <ListItemText ><Link className={nabItem} to="/ourProduct">Our pProduct</Link></ListItemText>
+                    <ListItemText ><Link className={nabItem} to="/ourProduct">Our Product</Link></ListItemText>
                 </ListItem>
                 <ListItem button>
                     <ListItemText><Link to="/dashboard" className={nabItem}>Dashboard</Link></ListItemText>
                 </ListItem>
                 <Divider />
-                {user.email && <span style={{ padding: '10px', color: 'black' }}>{user.displayName} </span>}
+                {user.email && <span style={{  padding: '10px', color: 'black' }}>{user.displayName} </span>}
                 {
                     user?.email ?
                         <Button onClick={logout} color="inherit">Logout</Button>
@@ -107,7 +107,7 @@ const Navbar = () => {
                             <Link to="/home" className={nabItemMD} ><Button color="inherit">Home</Button></Link>
                             <Link to="/ourProduct" className={nabItemMD} ><Button color="inherit">Our Product</Button></Link>
                             <Link to="/dashboard" className={nabItemMD}><Button color="inherit">Dashboard</Button></Link>
-                            {user.email && <span style={{ padding: '10px' }}>{user.displayName} </span>}
+                            {user.email && <span style={{marginTop:'-5px',textTransform: "capitalize",fontWeight:"bold", padding: '10px' }}>{user.displayName} </span>}
                             {
                                 user?.email ?
                                     <Button onClick={logout} color="inherit">Logout</Button>
